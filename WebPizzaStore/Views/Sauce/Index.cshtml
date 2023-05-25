@@ -1,0 +1,33 @@
+@model List<WebPizzaStore.Models.Sauce>
+
+<h1>Sauces</h1>
+
+<p>
+    <a asp-action="Create">Create New Sauce</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Is Vegan</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var sauce in Model)
+        {
+            <tr>
+                <td>@sauce.Id</td>
+                <td>@sauce.Name</td>
+                <td>@(sauce.IsVegan ? "Yes" : "No")</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@sauce.Id">Details</a> |
+                    <a asp-action="Edit" asp-route-id="@sauce.Id">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@sauce.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

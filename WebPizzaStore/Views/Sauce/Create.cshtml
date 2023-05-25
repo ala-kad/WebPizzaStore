@@ -1,0 +1,22 @@
+@model WebPizzaStore.Models.Sauce
+
+<h1>Create Sauce</h1>
+
+<form asp-action="Create">
+    <div class="form-group">
+        <label asp-for="Name">Name</label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Name">Is Vegan</label>
+        <select  asp-for="IsVegan" asp-items="ViewBag.IsVegan" class="form-control">
+            <option>-- Are you a meat lover ? --</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+    <a asp-action="Index">Back to List</a>
+</form>

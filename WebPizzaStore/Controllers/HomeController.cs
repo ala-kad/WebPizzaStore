@@ -22,7 +22,10 @@ namespace WebPizzaStore.Controllers
         {
             return View();
         }
-
+        public IActionResult Pizzas() 
+        {
+            return View("List");
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

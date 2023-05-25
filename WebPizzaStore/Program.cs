@@ -1,10 +1,15 @@
+using WebPizzaStore.Services;
+using WebPizzaStore.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // 1) define a unique string
-readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+ string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<PizzaService>();
+builder.Services.AddSqlite<PizzaContext>("Data Source=AlaPizza.db");
+builder.Services.AddRazorPages();
 
 // 2) define allowed domains, in this case "http://example.com" and "*" = all
 //    domains, for testing purposes only.
@@ -41,5 +46,7 @@ app.UseCors(MyAllowSpecificOrigins);
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.CreateDbIfNotExists();
 
 app.Run();
