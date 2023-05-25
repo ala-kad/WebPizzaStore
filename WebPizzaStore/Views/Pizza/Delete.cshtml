@@ -1,0 +1,51 @@
+@model WebPizzaStore.Models.Pizza
+
+<h1>Delete Pizza</h1>
+
+<div>
+    <h4>Pizza</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            <label asp-for="Id"></label>
+        </dt>
+        <dd class="col-sm-10">
+            <span asp-for="Id"></span>
+        </dd>
+        <dt class="col-sm-2">
+            <label asp-for="Name"></label>
+        </dt>
+        <dd class="col-sm-10">
+            <span asp-for="Name"></span>
+        </dd>
+        <dt class="col-sm-2">
+            <label asp-for="Price"></label>
+        </dt>
+        <dd class="col-sm-10">
+            <span asp-for="Price"></span>
+        </dd>
+        <dt class="col-sm-2">
+            <label asp-for="Size"></label>
+        </dt>
+        <dd class="col-sm-10">
+            <span asp-for="Size"></span>
+        </dd>
+        <dt class="col-sm-2">
+            <label asp-for="IsGlutenFree"></label>
+        </dt>
+        <dd class="col-sm-10">
+            <span asp-for="IsGlutenFree"></span>
+        </dd>
+        <dt class="col-sm-2">
+            <label asp-for="Sauce"></label>
+        </dt>
+        <dd class="col-sm-10">
+            <span asp-for="Sauce"></span>
+        </dd>
+    </dl>
+
+    <form asp-action="DeleteConfirmed" asp-controller="Pizza" asp-route-id="@Model.Id">
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

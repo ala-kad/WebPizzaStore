@@ -1,0 +1,58 @@
+@model WebPizzaStore.Models.Pizza
+
+<h2>Create Pizza</h2>
+
+<form asp-controller="Pizza" asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="Name">Name: </label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Price">Price: </label>
+        <input asp-for="Price" class="form-control" />
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Size">Size: </label>
+        <input asp-for="Size" class="form-control" />
+        <span asp-validation-for="Size" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="IsGlutenFree">Is Gluten Free: </label>
+            <select asp-for="IsGlutenFree" asp-items="ViewBag.IsGlutenFree" class="form-control">
+                <option value="">-- Select Your Preference</option>
+                <option value="Yes"> Yes </option>
+                <option value="No"> No </option>
+            </select>
+        <span asp-validation-for="IsGlutenFree" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Sauce">Sauce: </label>
+        <select asp-for="Sauce" asp-items="ViewBag.SauceList" class="form-control">
+            <option value="">-- Select Sauce --</option>
+            <option value="Tomato Sauce">Tomato Sauce</option>
+            <option value="Bacahmel Sauce">Bachemel Sauce</option>
+        </select>
+        <span asp-validation-for="Sauce" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Toppings">Toppings: </label>
+        <select asp-for="Toppings" asp-items="ViewBag.ToppingList" class="form-control">
+            <option value="">-- Select Topping --</option>
+            <option value="Cheese"> Cheese </option>
+            <option value="Mashrooms"> Mashrooms </option>
+            <option value="Pepperoni"> Pepperoni </option>
+        </select>
+        <span asp-validation-for="Toppings" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary" asp-asp-controller="Pizza" asp-action="Create">Create</button>
+</form>
+
+<a asp-controller="Pizza" asp-action="Index">Back to List</a>

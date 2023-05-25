@@ -1,0 +1,39 @@
+@model List<WebPizzaStore.Models.Pizza>
+
+<h1>Pizzas</h1>
+
+<p>
+    <a asp-action="Create">Create New Pizza</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Size</th>
+            <th>Is gluten Free</th>
+            <th>Sauce</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var pizza in Model)
+        {
+            <tr>
+                <td>@pizza.Id</td>
+                <td>@pizza.Name</td>
+                <td>@(pizza.Price)</td>
+                <td>@(pizza.Price)</td>
+                <td>@(pizza.IsGlutenFree ? "Yes" : "No")</td>
+                <td>@(pizza?.Sauce?.Name)</td>
+                <td>
+                    <a asp-action="List" asp-route-id="@pizza?.Id">Details</a> |
+                    <a asp-action="Edit" asp-route-id="@pizza?.Id">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@pizza?.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
